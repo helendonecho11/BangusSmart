@@ -1,0 +1,111 @@
+{
+  "synthetic": true,
+  "note": "Drawn silhouettes and a synthetic growth model only. No real-fish accuracy claim.",
+  "geometry_cases": [
+    {
+      "true_length_cm": 10,
+      "angle_degrees": 0,
+      "true_pixels_per_cm": 24,
+      "measured_length_cm": 10.03610610631618,
+      "measured_pixels_per_cm": 24.01329733334801,
+      "length_error_cm": 0.036106106316179165
+    },
+    {
+      "true_length_cm": 15,
+      "angle_degrees": 0,
+      "true_pixels_per_cm": 24,
+      "measured_length_cm": 15.0333373625732,
+      "measured_pixels_per_cm": 24.01329733334801,
+      "length_error_cm": 0.033337362573199414
+    },
+    {
+      "true_length_cm": 18,
+      "angle_degrees": 15,
+      "true_pixels_per_cm": 24,
+      "measured_length_cm": 18.01016668196963,
+      "measured_pixels_per_cm": 24.01329733334801,
+      "length_error_cm": 0.01016668196962911
+    },
+    {
+      "true_length_cm": 15,
+      "angle_degrees": -10,
+      "true_pixels_per_cm": 30,
+      "measured_length_cm": 15.025578050527702,
+      "measured_pixels_per_cm": 29.989723960747973,
+      "length_error_cm": 0.025578050527702345
+    }
+  ],
+  "length_error_cm": {
+    "n": 4,
+    "mean_signed_error": 0.02629705034667751,
+    "sample_sd_signed_error": 0.011640293810419896,
+    "mae": 0.02629705034667751,
+    "rmse": 0.028163046478148747,
+    "min_error": 0.01016668196962911,
+    "max_error": 0.036106106316179165
+  },
+  "rejection_checks": [
+    {
+      "case": "missing_reference",
+      "rejected": true,
+      "code": "cannot_measure_scale"
+    },
+    {
+      "case": "blurry_fish",
+      "rejected": true,
+      "code": "blurry_image"
+    }
+  ],
+  "video_check": {
+    "sampled": 3,
+    "accepted": 2,
+    "rejected_fraction": 0.33333333333333337,
+    "distinct_tracks": 1,
+    "median_length_cm": 15.036047917606599,
+    "track_samples": 2
+  },
+  "weight_at_15cm": {
+    "point_g": 30.571889857715078,
+    "confidence": "low",
+    "source": "Bagarinao & Thayaparan (1986), Aquaculture 55:241-246. 31 wild juveniles, Sri Lanka, fork length 92-186 mm. Published log10(W_g) = -5.6083 + 3.2598*log10(L_mm). Converted to cm: a=10**(-5.6083+3.2598).",
+    "status": "PLACEHOLDER_FOR_LOCAL_USE",
+    "warnings": [
+      "Length\u2013weight relation is not validated for this cooperative; fork-length landmarks require review."
+    ]
+  },
+  "synthetic_growth_age_at_110g_29c": {
+    "point_days": 63,
+    "range_days": [
+      49,
+      77
+    ],
+    "confidence": "low",
+    "basis": "days_since_stocking",
+    "range_type": "ASSUMPTION sensitivity envelope, not a confidence interval",
+    "warnings": [
+      "Growth model is synthetic; no real-fish age accuracy is known. A photo cannot reveal exact age."
+    ],
+    "weight_tolerance_fraction": 0.25,
+    "minimum_half_width_days": 14
+  },
+  "feed_cap_check": {
+    "biomass_kg": 550.0,
+    "rate_pct": 4.0,
+    "rate_was_capped": true,
+    "effective_status": "Good",
+    "water_multiplier": 1.0,
+    "daily_feed_kg": 22.0,
+    "available": true,
+    "average_weight_g": 110,
+    "fish_count": 5000,
+    "count_source": "user_supplied",
+    "water_status": "Good",
+    "meals_per_day": 2,
+    "per_meal_kg": 11.0,
+    "rate_source": "user_supplied_capped_at_4_percent",
+    "warnings": [
+      "ASSUMPTION: feeding table and water multipliers are not validated for this cooperative.",
+      "Estimated media weight and video count may be unrepresentative of the batch. Confirm with farm personnel."
+    ]
+  }
+}

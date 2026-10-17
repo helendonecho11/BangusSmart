@@ -1,0 +1,4 @@
+# OPTIONAL. Not needed by the classical pipeline. Supply existing local fish
+# segmentation weights; the application never downloads model weights.
+-r requirements.txt
+ultralytics>=8.3

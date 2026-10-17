@@ -1,0 +1,109 @@
+{
+  "status": "no_real_labelled_images",
+  "labelled_rows": 0,
+  "data_kind": "user_supplied_not_independently_verified",
+  "configuration_sha256": "618c507a4b71870e4ac183f20601f9c5f9f39de798dd3f522996521a0a118e49",
+  "configuration": {
+    "version": 1,
+    "detector": {
+      "backend": "classical",
+      "local_yolo_weights": null,
+      "fish_class_names": [
+        "fish",
+        "bangus",
+        "milkfish"
+      ],
+      "note": "Optional local YOLO segmentation weights ONLY. No models, datasets or real images are downloaded automatically. Generic COCO weights do not provide a dedicated bangus class. Default contour fallback is not species recognition."
+    },
+    "reference": {
+      "inner_corners": [
+        7,
+        5
+      ],
+      "square_size_cm": 1.0,
+      "note": "Physical square size MUST be supplied/verified by the operator. Board has 8 x 6 squares. No scale is inferred without detection.",
+      "max_spacing_ratio": 1.18
+    },
+    "measurement": {
+      "min_blur_variance": 35.0,
+      "min_contour_area_px": 300,
+      "min_aspect_ratio": 2.0,
+      "max_aspect_ratio": 9.0,
+      "max_image_pixels": 25000000,
+      "max_fish": 40,
+      "note": "ASSUMPTION: thresholds for a flat, plain, light background. Classical contours are fish candidates, not species recognition. Fork landmarks require manual review."
+    },
+    "length_weight": {
+      "a": 0.004482290499966204,
+      "b": 3.2598,
+      "length_unit": "cm",
+      "weight_unit": "g",
+      "length_type": "fork_length",
+      "valid_length_cm": [
+        9.2,
+        18.6
+      ],
+      "status": "PLACEHOLDER_FOR_LOCAL_USE",
+      "source": "Bagarinao & Thayaparan (1986), Aquaculture 55:241-246. 31 wild juveniles, Sri Lanka, fork length 92-186 mm. Published log10(W_g) = -5.6083 + 3.2598*log10(L_mm). Converted to cm: a=10**(-5.6083+3.2598).",
+      "source_url": "https://repository.seafdec.org.ph/handle/10862/1059",
+      "note": "Published relation, NOT calibrated for Hayuma Cooperative. Do not extrapolate beyond source length range. Refit only on separate training measurements; never on evaluation images."
+    },
+    "age": {
+      "min_day": 0,
+      "max_day": 147,
+      "mean_temp_range_c": [
+        26.5,
+        31.5
+      ],
+      "weight_tolerance_fraction": 0.25,
+      "minimum_half_width_days": 14,
+      "disagreement_fraction": 0.2,
+      "status": "ASSUMPTION",
+      "note": "Range is a sensitivity envelope with a PLACEHOLDER +/-25% weight tolerance and minimum +/-14 days; not a calibrated confidence interval. Existing growth model is synthetic. Days are since stocking, not birth."
+    },
+    "video": {
+      "sample_fps": 1.0,
+      "max_sampled_frames": 180,
+      "max_duration_seconds": 180,
+      "max_upload_bytes": 50000000,
+      "max_tracking_gap_seconds": 3.0,
+      "max_centroid_move_lengths": 0.8,
+      "max_length_change_fraction": 0.25,
+      "note": "ASSUMPTION: conservative position/size assignment tracker. Distinct tracks are not a verified stock count. Occlusions, crossings and re-entry can split or merge tracks."
+    }
+  },
+  "mean_temp_c_default": 29,
+  "note": "No real labelled images supplied; no accuracy scores.",
+  "length_error_cm": {
+    "n": 0,
+    "mean_signed_error": null,
+    "sample_sd_signed_error": null,
+    "mae": null,
+    "rmse": null,
+    "min_error": null,
+    "max_error": null
+  },
+  "weight_error_g": {
+    "n": 0,
+    "mean_signed_error": null,
+    "sample_sd_signed_error": null,
+    "mae": null,
+    "rmse": null,
+    "min_error": null,
+    "max_error": null
+  },
+  "age_error_days": {
+    "n": 0,
+    "mean_signed_error": null,
+    "sample_sd_signed_error": null,
+    "mae": null,
+    "rmse": null,
+    "min_error": null,
+    "max_error": null
+  },
+  "quality_rejection_count": 0,
+  "quality_rejection_fraction": null,
+  "unscorable_count": 0,
+  "age_range_coverage": null,
+  "rows": []
+}

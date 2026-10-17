@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BangusSmart ML Dashboard Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f3f6f5;font-family:'Manrope',system-ui,sans-serif;color:#0d2a2f}
+a{color:#0f6b6e}
+.top{background:#0b3b40}
+.topin{max-width:1312px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:-0.01em}
+.nav{display:flex;flex-wrap:wrap;gap:4px;flex:1 1 auto}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:#cfe3e1;text-decoration:none;font-weight:600;font-size:14px;border-bottom:3px solid transparent}
+.nav a:hover{color:#fff}
+.nav a.on{color:#fff;border-bottom-color:#eb6834}
+.site{color:#cfe3e1;font-size:13px;font-weight:600}
+.page[hidden]{display:none}
+#p-main .wrap{max-width:1312px;margin:0 auto;padding:28px 24px 40px;display:flex;flex-direction:column;gap:20px}
+#p-main .card{background:#fff;border:1px solid #dbe5e3;border-radius:14px;padding:20px;min-width:0}
+#p-main .h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
+#p-main .h2{margin:0 0 4px;font-size:16px;font-weight:700}
+#p-main .muted{color:#4b6469;font-size:13px;line-height:1.5}
+#p-main .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
+#p-main .row{display:flex;flex-wrap:wrap;gap:16px}
+#p-main .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+#p-main .lab{font-size:13px;font-weight:700;color:#4b6469;text-transform:uppercase;letter-spacing:.06em}
+#p-main .big{font-size:40px;line-height:1.1;letter-spacing:-0.02em}
+#p-main .unit{font-size:15px;color:#4b6469;margin-left:6px;font-weight:600}
+#p-main .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+#p-main .good{background:#e3f4ea;color:#14633a}
+#p-main .warn{background:#fdf1d6;color:#7a4f00}
+#p-main .crit{background:#fbe4e0;color:#9a2517}
+#p-main .info{background:#e4eefb;color:#1d4f91}
+#p-main .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff3e0;color:#7a4300;font-size:12px;font-weight:700}
+#p-main .tbl{width:100%;border-collapse:collapse;font-size:14px}
+#p-main .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#4b6469;padding:8px 10px;border-bottom:1px solid #dbe5e3}
+#p-main .tbl td{padding:10px;border-bottom:1px solid #edf2f1}
+#p-main .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:#0f6b6e;color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+#p-growth .wrap{max-width:1312px;margin:0 auto;padding:28px 24px 40px;display:flex;flex-direction:column;gap:20px}
+#p-growth .card{background:#fff;border:1px solid #dbe5e3;border-radius:14px;padding:20px;min-width:0}
+#p-growth .h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
+#p-growth .h2{margin:0 0 4px;font-size:16px;font-weight:700}
+#p-growth .muted{color:#4b6469;font-size:13px;line-height:1.5}
+#p-growth .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
+#p-growth .row{display:flex;flex-wrap:wrap;gap:16px}
+#p-growth .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+#p-growth .lab{font-size:13px;font-weight:700;color:#4b6469;text-transform:uppercase;letter-spacing:.06em}
+#p-growth .big{font-size:40px;line-height:1.1;letter-spacing:-0.02em}
+#p-growth .unit{font-size:15px;color:#4b6469;margin-left:6px;font-weight:600}
+#p-growth .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+#p-growth .good{background:#e3f4ea;color:#14633a}
+#p-growth .warn{background:#fdf1d6;color:#7a4f00}
+#p-growth .crit{background:#fbe4e0;color:#9a2517}
+#p-growth .info{background:#e4eefb;color:#1d4f91}
+#p-growth .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff3e0;color:#7a4300;font-size:12px;font-weight:700}
+#p-growth .tbl{width:100%;border-collapse:collapse;font-size:14px}
+#p-growth .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#4b6469;padding:8px 10px;border-bottom:1px solid #dbe5e3}
+#p-growth .tbl td{padding:10px;border-bottom:1px solid #edf2f1}
+#p-growth .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:#0f6b6e;color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+#p-growth .seg{display:inline-flex;border:1px solid #c5d4d1;border-radius:10px;overflow:hidden}
+#p-growth .seg button{min-height:44px;padding:0 16px;border:0;background:#fff;color:#0d2a2f;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+#p-alerts .wrap{max-width:1312px;margin:0 auto;padding:28px 24px 40px;display:flex;flex-direction:column;gap:20px}
+#p-alerts .card{background:#fff;border:1px solid #dbe5e3;border-radius:14px;padding:20px;min-width:0}
+#p-alerts .h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
+#p-alerts .h2{margin:0 0 4px;font-size:16px;font-weight:700}
+#p-alerts .muted{color:#4b6469;font-size:13px;line-height:1.5}
+#p-alerts .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
+#p-alerts .row{display:flex;flex-wrap:wrap;gap:16px}
+#p-alerts .lab{font-size:13px;font-weight:700;color:#4b6469;text-transform:uppercase;letter-spacing:.06em}
+#p-alerts .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+#p-alerts .good{background:#e3f4ea;color:#14633a}
+#p-alerts .warn{background:#fdf1d6;color:#7a4f00}
+#p-alerts .crit{background:#fbe4e0;color:#9a2517}
+#p-alerts .info{background:#e4eefb;color:#1d4f91}
+#p-alerts .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff3e0;color:#7a4300;font-size:12px;font-weight:700}
+#p-alerts .tbl{width:100%;border-collapse:collapse;font-size:14px}
+#p-alerts .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#4b6469;padding:8px 10px;border-bottom:1px solid #dbe5e3}
+#p-alerts .tbl td{padding:10px;border-bottom:1px solid #edf2f1;vertical-align:top}
+#p-alerts .seg{display:inline-flex;flex-wrap:wrap;border:1px solid #c5d4d1;border-radius:10px;overflow:hidden}
+#p-alerts .seg button{min-height:44px;padding:0 16px;border:0;background:#fff;color:#0d2a2f;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+#p-alerts .chk{display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:600}
+#p-alerts .chk input{width:20px;height:20px;accent-color:#0f6b6e}
+#p-model .wrap{max-width:1312px;margin:0 auto;padding:28px 24px 40px;display:flex;flex-direction:column;gap:20px}
+#p-model .card{background:#fff;border:1px solid #dbe5e3;border-radius:14px;padding:20px;min-width:0}
+#p-model .h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
+#p-model .h2{margin:0 0 4px;font-size:16px;font-weight:700}
+#p-model .muted{color:#4b6469;font-size:13px;line-height:1.5}
+#p-model .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
+#p-model .row{display:flex;flex-wrap:wrap;gap:16px}
+#p-model .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+#p-model .lab{font-size:13px;font-weight:700;color:#4b6469;text-transform:uppercase;letter-spacing:.06em}
+#p-model .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+#p-model .good{background:#e3f4ea;color:#14633a}
+#p-model .warn{background:#fdf1d6;color:#7a4f00}
+#p-model .crit{background:#fbe4e0;color:#9a2517}
+#p-model .info{background:#e4eefb;color:#1d4f91}
+#p-model .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff3e0;color:#7a4300;font-size:12px;font-weight:700}
+#p-model .tbl{width:100%;border-collapse:collapse;font-size:14px}
+#p-model .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#4b6469;padding:8px 10px;border-bottom:1px solid #dbe5e3}
+#p-model .tbl td{padding:10px;border-bottom:1px solid #edf2f1;vertical-align:middle}
+#p-model .step{flex:1 1 150px;border:1px solid #dbe5e3;border-radius:12px;padding:14px;background:#f8fbfa}
+#p-model .step b{display:block;font-size:14px;margin-bottom:4px}
+#p-model .arrow{flex:none;align-self:center;color:#4b6469}
+#p-model .cm{display:grid;grid-template-columns:90px repeat(3,minmax(0,1fr));gap:4px;font-size:14px}
+#p-model .cm div{padding:14px 6px;text-align:center;border-radius:6px}
+#p-devices .wrap{max-width:1312px;margin:0 auto;padding:28px 24px 40px;display:flex;flex-direction:column;gap:20px}
+#p-devices .card{background:#fff;border:1px solid #dbe5e3;border-radius:14px;padding:20px;min-width:0}
+#p-devices .h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-0.02em}
+#p-devices .h2{margin:0 0 4px;font-size:16px;font-weight:700}
+#p-devices .muted{color:#4b6469;font-size:13px;line-height:1.5}
+#p-devices .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-weight:600}
+#p-devices .row{display:flex;flex-wrap:wrap;gap:16px}
+#p-devices .lab{font-size:13px;font-weight:700;color:#4b6469;text-transform:uppercase;letter-spacing:.06em}
+#p-devices .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:13px;font-weight:700}
+#p-devices .good{background:#e3f4ea;color:#14633a}
+#p-devices .warn{background:#fdf1d6;color:#7a4f00}
+#p-devices .info{background:#e4eefb;color:#1d4f91}
+#p-devices .badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;background:#fff3e0;color:#7a4300;font-size:12px;font-weight:700}
+#p-devices .tbl{width:100%;border-collapse:collapse;font-size:14px}
+#p-devices .tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#4b6469;padding:8px 10px;border-bottom:1px solid #dbe5e3}
+#p-devices .tbl td{padding:10px;border-bottom:1px solid #edf2f1;vertical-align:middle}
+#p-devices .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:10px;border:0;background:#0f6b6e;color:#fff;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+#p-devices .btn2{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid #c5d4d1;background:#fff;color:#0d2a2f;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer}
+#p-devices .fld{display:flex;flex-direction:column;gap:6px;flex:1 1 180px}
+#p-devices .fld label{font-size:13px;font-weight:700}
+#p-devices .fld input,#p-devices .fld select{min-height:44px;padding:0 12px;border:1px solid #9db3b0;border-radius:10px;font-family:inherit;font-size:15px;color:#0d2a2f;background:#fff}
+</style></head><body>
+<header class="top"><div class="topin">
+<a class="brand" href="#main"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16c4-7 12-9 18-5l6-5v20l-6-5c-6 4-14 2-18-5z" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"></path><circle cx="9" cy="14" r="1.4" fill="#ffffff"></circle></svg><span>BangusSmart</span></a>
+<nav class="nav" aria-label="Main">
+<a href="#main" data-nav="main">Dashboard</a>
+<a href="#growth" data-nav="growth">Growth &amp; Feeding</a>
+<a href="#alerts" data-nav="alerts">Alerts</a>
+<a href="#model" data-nav="model">ML Model</a>
+<a href="#devices" data-nav="devices">Devices &amp; Data</a>
+</nav>
+<div class="site">Hayuma Cooperative · Cage A</div>
+</div></header>
+<div class="page" id="p-main" hidden>
+<main class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<div>
+<h1 class="h1">Farm overview</h1>
+<div class="muted" style="margin-top:4px">Batch 3 · Day 63 of culture · 5,000 fish · last reading 11:00 PM</div>
+</div>
+<span class="badge">Sample data · prototype</span>
+</div>
+
+<section class="grid4" aria-label="Current readings">
+<div class="card">
+<div class="lab">Temperature</div>
+<div style="margin:10px 0 6px"><span class="num big">27.9</span><span class="unit">°C</span></div>
+<div class="muted" style="margin-bottom:12px">Good range 26–32 °C</div>
+<span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Good</span>
+</div>
+<div class="card">
+<div class="lab">pH</div>
+<div style="margin:10px 0 6px"><span class="num big">8.05</span></div>
+<div class="muted" style="margin-bottom:12px">Good range 7.5–8.3</div>
+<span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Good</span>
+</div>
+<div class="card">
+<div class="lab">Dissolved oxygen</div>
+<div style="margin:10px 0 6px"><span class="num big">4.69</span><span class="unit">mg/L</span></div>
+<div class="muted" style="margin-bottom:12px">Good at 4 or above · down 1.31 in the last hour</div>
+<span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Good, falling</span>
+</div>
+<div class="card" style="background:#0b3b40;border-color:#0b3b40;color:#fff">
+<div class="lab" style="color:#a9cfcb">Water status</div>
+<div style="margin:10px 0 6px;font-size:34px;font-weight:800;letter-spacing:-0.02em">Good</div>
+<div style="font-size:13px;line-height:1.5;color:#cfe3e1;margin-bottom:12px">Decided by the threshold rule. ML classifier agrees: Good, 98% confidence.</div>
+<a href="#model" style="color:#ffffff;font-weight:700;font-size:14px">See how it works</a>
+</div>
+</section>
+
+<div class="row" style="align-items:stretch">
+<section class="card" style="flex:2 1 560px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px">
+<div>
+<h2 class="h2">Dissolved oxygen, last 24 hours</h2>
+<div class="muted">Measured readings and the model's one-hour-ahead forecast</div>
+</div>
+<div style="display:flex;gap:16px;align-items:center;font-size:13px;font-weight:600;color:#4b6469">
+<span style="display:inline-flex;align-items:center;gap:6px"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#2a78d6" stroke-width="3"></line></svg>Measured</span>
+<span style="display:inline-flex;align-items:center;gap:6px"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#eb6834" stroke-width="3" stroke-dasharray="5 3"></line></svg>Forecast</span>
+</div>
+</div>
+<svg viewBox="0 0 660 250" style="width:100%;height:auto;margin-top:8px" role="img" aria-label="Line chart of dissolved oxygen over 24 hours. Oxygen rises to about 7.3 mg per liter in the afternoon and falls to 4.7 at 11 PM. The forecast line follows the measured line closely.">
+<g stroke="#e4ebea" stroke-width="1">
+<line x1="40" y1="20" x2="640" y2="20"></line>
+<line x1="40" y1="80" x2="640" y2="80"></line>
+<line x1="40" y1="140" x2="640" y2="140" stroke="#4b6469" stroke-dasharray="5 4"></line>
+<line x1="40" y1="200" x2="640" y2="200"></line>
+</g>
+<g font-size="11" fill="#4b6469" text-anchor="end">
+<text x="32" y="24">8</text><text x="32" y="84">6</text><text x="32" y="144">4</text><text x="32" y="204">2</text>
+</g>
+<text x="46" y="156" font-size="11" fill="#4b6469" font-weight="600">4 mg/L alert level</text>
+<g font-size="11" fill="#4b6469" text-anchor="middle">
+<text x="40" y="226">12 AM</text><text x="185" y="226">6 AM</text><text x="330" y="226">12 PM</text><text x="475" y="226">6 PM</text><text x="620" y="226">12 AM</text>
+</g>
+<polyline fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" points="40,106 64,115 88,125 113,134 137,135 161,106 185,115 209,99 233,91 258,94 282,84 306,78 330,70 354,53 378,41 403,44 427,67 451,53 475,50 499,53 523,73 548,81 572,80 596,119"></polyline>
+<polyline fill="none" stroke="#eb6834" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6 4" points="64,111 88,117 113,118 137,130 161,133 185,111 209,108 233,101 258,85 282,83 306,72 330,66 354,63 378,52 403,47 427,44 451,66 475,53 499,59 523,60 548,78 572,82 596,86 620,115"></polyline>
+<circle cx="596" cy="119" r="5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"></circle>
+<circle cx="620" cy="115" r="5" fill="#eb6834" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+</section>
+
+<section class="card" style="flex:1 1 320px;display:flex;flex-direction:column;gap:14px">
+<div>
+<div class="lab">Next-hour DO forecast</div>
+<div style="margin:8px 0 4px"><span class="num big">4.83</span><span class="unit">mg/L</span></div>
+<div class="muted">0.83 above the 4.0 alert level. Forecasts can miss sudden drops, so keep watching the live reading.</div>
+</div>
+<div style="border-top:1px solid #edf2f1;padding-top:14px">
+<div class="lab">Today's feed recommendation</div>
+<div style="margin:8px 0 4px"><span class="num big">18.6</span><span class="unit">kg</span></div>
+<div class="muted" style="margin-bottom:10px">3.5% of 530 kg estimated fish weight, full ration because water is Good.</div>
+<table class="tbl" aria-label="Feed by water status">
+<thead><tr><th>Water</th><th>Ration</th><th style="text-align:right">Feed</th></tr></thead>
+<tbody>
+<tr style="background:#e3f4ea"><td style="font-weight:700">Good (now)</td><td>100%</td><td class="num" style="text-align:right">18.6 kg</td></tr>
+<tr><td>Warning</td><td>50%</td><td class="num" style="text-align:right">9.3 kg</td></tr>
+<tr><td>Critical</td><td>0%</td><td class="num" style="text-align:right">0 kg</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+
+<div class="row" style="align-items:stretch">
+<section class="card" style="flex:1 1 440px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px">
+<h2 class="h2" style="margin:0">Recent alerts</h2>
+<a href="#alerts" style="font-weight:700;font-size:14px">View all</a>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #edf2f1">
+<span class="pill warn" style="flex:none"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z M8 6.5v3.2 M8 11.6v.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Warning</span>
+<div><div style="font-weight:700;font-size:14px">Dissolved oxygen dropped 1.31 mg/L in one hour</div><div class="muted">Today, 11:00 PM · Check aerator and hold the next feeding if it keeps falling</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #edf2f1">
+<span class="pill info" style="flex:none"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M8 7.2v4 M8 4.8v.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>Info</span>
+<div><div style="font-weight:700;font-size:14px">Oxygen approached the alert level at 4:00 AM</div><div class="muted">Today, 4:00 AM · Measured 4.16 mg/L, recovered by 5:00 AM</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #edf2f1">
+<span class="pill info" style="flex:none"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M8 7.2v4 M8 4.8v.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>Info</span>
+<div><div style="font-weight:700;font-size:14px">Fish sampling due in 2 days</div><div class="muted">Weigh a sample to keep the growth model accurate</div></div>
+</div>
+</div>
+</section>
+
+<section class="card" style="flex:1 1 440px">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px">
+<h2 class="h2" style="margin:0">Growth snapshot</h2>
+<a href="#growth" style="font-weight:700;font-size:14px">Open growth plan</a>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;margin-bottom:16px">
+<div><div class="lab">Predicted weight</div><div style="margin-top:6px"><span class="num" style="font-size:28px">106</span><span class="unit">g avg</span></div></div>
+<div><div class="lab">Last weighed</div><div style="margin-top:6px"><span class="num" style="font-size:28px">113</span><span class="unit">g avg</span></div></div>
+<div><div class="lab">Days to 400 g</div><div style="margin-top:6px"><span class="num" style="font-size:28px">~74</span><span class="unit">days</span></div></div>
+</div>
+<div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#4b6469;margin-bottom:6px"><span>Progress to market size</span><span>27%</span></div>
+<div style="height:12px;border-radius:6px;background:#e4ebea;overflow:hidden" role="img" aria-label="27 percent of the way to 400 grams"><div style="width:27%;height:100%;background:#2a78d6;border-radius:6px"></div></div>
+<div class="muted" style="margin-top:12px">Estimate assumes a mean water temperature of 29 °C. Market size of 400 g is the SEAFDEC cage-culture reference.</div>
+</section>
+</div>
+
+<footer class="muted" style="padding-top:4px">All values on this screen are sample data from the synthetic prototype. BangusSmart is a decision-support tool: its recommendations assist farm personnel and do not replace their judgment or professional aquaculture practice.</footer>
+</main>
+</div>
+<div class="page" id="p-growth" hidden>
+<main class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<div>
+<h1 class="h1">Growth and feeding</h1>
+<div class="muted" style="margin-top:4px">Batch 3 · stocked 63 days ago · 5,000 fish</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<span class="badge">Sample data · prototype</span>
+<div class="seg" role="group" aria-label="Mean water temperature">
+<button type="button" data-temp="27">27 °C</button>
+<button type="button" data-temp="29">29 °C</button>
+<button type="button" data-temp="31">31 °C</button>
+</div>
+</div>
+</div>
+
+<section class="grid4" aria-label="Growth summary">
+<div class="card"><div class="lab">Predicted weight today</div><div style="margin:10px 0 6px"><span class="num big">106</span><span class="unit">g avg</span></div><div class="muted">Model estimate for day 63</div></div>
+<div class="card"><div class="lab">Last weighed sample</div><div style="margin:10px 0 6px"><span class="num big">113</span><span class="unit">g avg</span></div><div class="muted">Day 63 · 7 g above the model, within normal spread</div></div>
+<div class="card"><div class="lab">Estimated fish weight</div><div style="margin:10px 0 6px"><span class="num big">530</span><span class="unit">kg</span></div><div class="muted">5,000 fish × 106 g. Assumes no losses; enter mortality in Devices &amp; Data.</div></div>
+<div class="card" style="background:#0b3b40;border-color:#0b3b40;color:#fff"><div class="lab" style="color:#a9cfcb">Reaches 400 g</div><div style="margin:10px 0 6px"><span class="num big"><span id="mday">137</span></span><span class="unit" style="color:#cfe3e1">day of culture</span></div><div style="font-size:13px;line-height:1.5;color:#cfe3e1"><span id="mnote"></span></div></div>
+</section>
+
+<div class="row" style="align-items:stretch">
+<section class="card" style="flex:2 1 560px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px">
+<div><h2 class="h2">Predicted growth curve</h2><div class="muted">Model prediction against weighed samples from this batch</div></div>
+<div style="display:flex;gap:16px;align-items:center;font-size:13px;font-weight:600;color:#4b6469">
+<span style="display:inline-flex;align-items:center;gap:6px"><svg width="22" height="8" aria-hidden="true"><line x1="0" y1="4" x2="22" y2="4" stroke="#eb6834" stroke-width="3"></line></svg>Model</span>
+<span style="display:inline-flex;align-items:center;gap:6px"><svg width="10" height="10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="#2a78d6"></circle></svg>Weighed samples</span>
+</div>
+</div>
+<svg viewBox="0 0 700 290" style="width:100%;height:auto;margin-top:8px" role="img" aria-label="Growth curve rising from 20 grams at day 0 to about 436 grams at day 150 at 29 degrees. Weighed samples up to day 63 sit close to the curve.">
+<g stroke="#e4ebea" stroke-width="1">
+<line x1="50" y1="20" x2="670" y2="20"></line><line x1="50" y1="64" x2="670" y2="64"></line><line x1="50" y1="108" x2="670" y2="108"></line><line x1="50" y1="152" x2="670" y2="152"></line><line x1="50" y1="196" x2="670" y2="196"></line><line x1="50" y1="240" x2="670" y2="240"></line>
+</g>
+<line x1="50" y1="64" x2="670" y2="64" stroke="#4b6469" stroke-dasharray="5 4"></line>
+<text x="56" y="56" font-size="11" fill="#4b6469" font-weight="600">400 g market size</text>
+<g font-size="11" fill="#4b6469" text-anchor="end">
+<text x="42" y="24">500</text><text x="42" y="68">400</text><text x="42" y="112">300</text><text x="42" y="156">200</text><text x="42" y="200">100</text><text x="42" y="244">0</text>
+</g>
+<g font-size="11" fill="#4b6469" text-anchor="middle">
+<text x="50" y="262">0</text><text x="170" y="262">30</text><text x="290" y="262">60</text><text x="410" y="262">90</text><text x="530" y="262">120</text><text x="650" y="262">150</text>
+</g>
+<text x="360" y="282" font-size="11" fill="#4b6469" text-anchor="middle">Day of culture</text>
+<line x1="302" y1="20" x2="302" y2="240" stroke="#0f6b6e" stroke-width="1.5" stroke-dasharray="2 3"></line>
+<text x="308" y="34" font-size="11" fill="#0d2a2f" font-weight="700">Today, day 63</text>
+<polyline fill="none" stroke="#eb6834" stroke-width="2.8" stroke-linejoin="round" id="curve" points=""></polyline>
+<g fill="#2a78d6" stroke="#ffffff" stroke-width="2">
+<circle cx="50" cy="232" r="5"></circle><circle cx="78" cy="228" r="5"></circle><circle cx="106" cy="223" r="5"></circle><circle cx="134" cy="222" r="5"></circle><circle cx="162" cy="218" r="5"></circle><circle cx="190" cy="215" r="5"></circle><circle cx="218" cy="209" r="5"></circle><circle cx="246" cy="203" r="5"></circle><circle cx="274" cy="190" r="5"></circle><circle cx="302" cy="190" r="5"></circle>
+</g>
+</svg>
+</section>
+
+<section class="card" style="flex:1 1 320px">
+<h2 class="h2">Today's feeding plan</h2>
+<div class="muted" style="margin-bottom:14px">Ration follows fish size, then is reduced by water status.</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf2f1;padding-bottom:10px"><span class="muted">Average weight</span><span class="num">106 g</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf2f1;padding-bottom:10px"><span class="muted">Base feed rate (100 to 150 g)</span><span class="num">3.5% / day</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf2f1;padding-bottom:10px"><span class="muted">Water status factor</span><span class="num">× 1.0 (Good)</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:4px"><span style="font-weight:700">Feed today</span><span class="num" style="font-size:30px">18.6 kg</span></div>
+</div>
+<div style="margin-top:12px;padding:12px;border-radius:10px;background:#e4eefb;color:#1d4f91;font-size:13px;line-height:1.5;font-weight:600">Rates are placeholders kept at or below SEAFDEC's 4% of body weight limit for pond feeding. Confirm with the cooperative's own feeding table.</div>
+<div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px">
+<a class="btn" href="#devices">Log fish sample</a>
+</div>
+</section>
+</div>
+
+<section class="card">
+<h2 class="h2">Feed schedule by stage</h2>
+<div class="muted" style="margin-bottom:10px">5,000 fish at 29 °C, water status Good</div>
+<div style="overflow-x:auto">
+<table class="tbl" style="min-width:560px">
+<thead><tr><th>Day</th><th>Avg weight</th><th>Estimated fish weight</th><th>Feed rate</th><th style="text-align:right">Feed per day</th></tr></thead>
+<tbody>
+<tr><td class="num">14</td><td class="num">27 g</td><td class="num">135 kg</td><td class="num">4.0%</td><td class="num" style="text-align:right">5.4 kg</td></tr>
+<tr><td class="num">30</td><td class="num">41 g</td><td class="num">204 kg</td><td class="num">4.0%</td><td class="num" style="text-align:right">8.2 kg</td></tr>
+<tr style="background:#e3f4ea"><td class="num" style="font-weight:700">63 (today)</td><td class="num">106 g</td><td class="num">530 kg</td><td class="num">3.5%</td><td class="num" style="text-align:right;font-weight:700">18.6 kg</td></tr>
+<tr><td class="num">90</td><td class="num">205 g</td><td class="num">1,023 kg</td><td class="num">3.0%</td><td class="num" style="text-align:right">30.7 kg</td></tr>
+<tr><td class="num">120</td><td class="num">330 g</td><td class="num">1,649 kg</td><td class="num">2.5%</td><td class="num" style="text-align:right">41.2 kg</td></tr>
+<tr><td class="num">135</td><td class="num">382 g</td><td class="num">1,908 kg</td><td class="num">2.5%</td><td class="num" style="text-align:right">47.7 kg</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<footer class="muted">Sample data from the synthetic prototype. Real growth predictions need weighed samples and water temperature from the cooperative's own batches.</footer>
+</main>
+</div>
+<div class="page" id="p-alerts" hidden>
+<main class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<div>
+<h1 class="h1">Alerts and recommendations</h1>
+<div class="muted" style="margin-top:4px">Water-quality, forecast and sampling alerts for Cage A</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<span class="badge">Sample data · prototype</span>
+<div class="seg" role="group" aria-label="Filter alerts">
+<button type="button" data-f="all">All</button>
+<button type="button" data-f="crit">Critical</button>
+<button type="button" data-f="warn">Warning</button>
+<button type="button" data-f="info">Info</button>
+</div>
+</div>
+</div>
+
+<div class="row" style="align-items:flex-start">
+<section class="card" style="flex:2 1 560px">
+<h2 class="h2">Alert history</h2>
+<div class="muted" style="margin-bottom:8px"><span id="shown"></span></div>
+<div style="display:flex;flex-direction:column">
+<div id="alist"></div>
+</div>
+</section>
+
+<div style="flex:1 1 360px;display:flex;flex-direction:column;gap:16px;min-width:0">
+<section class="card">
+<h2 class="h2">Alert rules</h2>
+<div class="muted" style="margin-bottom:10px">Water status is decided by these thresholds</div>
+<div style="overflow-x:auto">
+<table class="tbl" style="min-width:420px">
+<thead><tr><th>Measure</th><th>Good</th><th>Warning</th><th>Critical</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:700">Temperature</td><td class="num">26–32 °C</td><td class="num">24–26, 32–34</td><td class="num">&lt;24, &gt;34</td></tr>
+<tr><td style="font-weight:700">pH</td><td class="num">7.5–8.3</td><td class="num">7.0–7.5, 8.3–8.8</td><td class="num">&lt;7.0, &gt;8.8</td></tr>
+<tr><td style="font-weight:700">Oxygen</td><td class="num">4 or more</td><td class="num">3–4 mg/L</td><td class="num">&lt;3 mg/L</td></tr>
+</tbody>
+</table>
+</div>
+<div class="muted" style="margin-top:10px">Good ranges follow SEAFDEC/AQD milkfish cage-culture guidance. Warning and Critical limits are assumptions to confirm with the cooperative.</div>
+<div style="margin-top:12px;padding:12px;border-radius:10px;background:#fff3e0;color:#7a4300;font-size:13px;line-height:1.5;font-weight:600">Proposed, not yet in the prototype: warn when oxygen falls more than 1 mg/L within an hour.</div>
+</section>
+
+<section class="card">
+<h2 class="h2">What the system does</h2>
+<table class="tbl" style="margin-top:6px">
+<thead><tr><th>Status</th><th>Feeding response</th></tr></thead>
+<tbody>
+<tr><td><span class="pill good">Good</span></td><td>Full ration</td></tr>
+<tr><td><span class="pill warn">Warning</span></td><td>Half ration, check aerator and sensors</td></tr>
+<tr><td><span class="pill crit">Critical</span></td><td>No feeding, act on the farm now</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="card">
+<h2 class="h2">Notify me by</h2>
+<div class="muted" style="margin-bottom:6px">Critical alerts are always sent</div>
+<label class="chk"><input type="checkbox" checked> In-app notification</label>
+<label class="chk"><input type="checkbox" checked> SMS to farm supervisor</label>
+<label class="chk"><input type="checkbox"> Email summary each morning</label>
+</section>
+</div>
+</div>
+
+<footer class="muted">Sample alerts. The system supports decisions of farm personnel and does not replace their judgment.</footer>
+</main>
+</div>
+<div class="page" id="p-model" hidden>
+<main class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<div>
+<h1 class="h1">Machine learning model</h1>
+<div class="muted" style="margin-top:4px">How BangusSmart turns sensor and fish data into status, forecasts and feeding advice</div>
+</div>
+<span class="badge">Trained on synthetic data</span>
+</div>
+
+<section class="card" style="background:#fff3e0;border-color:#f0d3a8">
+<div style="font-weight:800;font-size:15px;color:#7a4300">Read the scores with care</div>
+<div style="font-size:14px;line-height:1.55;color:#5c3500;margin-top:4px">No real Hayuma Cooperative data exists yet, so the models were trained and tested on generated data that imitates a bangus farm. These scores show the pipeline works. They are not evidence of real-world accuracy, which can only be measured after collecting data at the farm.</div>
+</section>
+
+<section class="card">
+<h2 class="h2">How data flows</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
+<div class="step"><b>1. Sensors</b><span class="muted">Temperature, pH, dissolved oxygen, hourly</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="step"><b>2. IoT controller</b><span class="muted">ESP32 sends readings over Wi-Fi</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="step"><b>3. Database</b><span class="muted">Stores readings and fish samples</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="step" style="background:#e3f4ea;border-color:#b9dfc8"><b>4. ML models</b><span class="muted">Status, oxygen forecast, growth</span></div>
+<div class="arrow" aria-hidden="true">→</div>
+<div class="step"><b>5. Dashboard</b><span class="muted">Alerts and feed advice for farm staff</span></div>
+</div>
+</section>
+
+<section class="grid3" aria-label="Model scores">
+<div class="card">
+<div class="lab">Water status</div>
+<div style="font-weight:700;font-size:15px;margin:6px 0 12px">Gradient boosting classifier</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">ML accuracy</span><span class="num" style="font-size:22px">89.3%</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">Threshold rule accuracy</span><span class="num" style="font-size:22px">91.9%</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">Critical hours caught</span><span class="num" style="font-size:22px">14 of 15</span></div>
+</div>
+<div style="margin-top:14px;padding:10px 12px;border-radius:10px;background:#e4eefb;color:#1d4f91;font-size:13px;line-height:1.5;font-weight:600">The dashboard uses the rule for decisions. The ML result is shown alongside it for comparison.</div>
+</div>
+<div class="card">
+<div class="lab">Oxygen forecast</div>
+<div style="font-weight:700;font-size:15px;margin:6px 0 12px">One hour ahead, gradient boosting</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">Average error</span><span class="num" style="font-size:22px">0.289 mg/L</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">"Same as now" baseline</span><span class="num" style="font-size:22px">0.362 mg/L</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">R²</span><span class="num" style="font-size:22px">0.885</span></div>
+</div>
+<div style="margin-top:14px;padding:10px 12px;border-radius:10px;background:#e3f4ea;color:#14633a;font-size:13px;line-height:1.5;font-weight:600">More accurate than assuming the next hour equals this hour.</div>
+</div>
+<div class="card">
+<div class="lab">Fish growth</div>
+<div style="font-weight:700;font-size:15px;margin:6px 0 12px">Average weight by day and temperature</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">Average error</span><span class="num" style="font-size:22px">28 g</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">R²</span><span class="num" style="font-size:22px">0.922</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span class="muted">Tested on</span><span class="num" style="font-size:22px">8 new batches</span></div>
+</div>
+<div style="margin-top:14px;padding:10px 12px;border-radius:10px;background:#fff3e0;color:#7a4300;font-size:13px;line-height:1.5;font-weight:600">Mostly shows the model recovers the growth curve that was simulated.</div>
+</div>
+</section>
+
+<div class="row" style="align-items:flex-start">
+<section class="card" style="flex:1.3 1 460px">
+<h2 class="h2">Early warning of oxygen drops</h2>
+<div class="muted" style="margin-bottom:10px">Test period: 6 real drops from a fine reading to below 4 mg/L, among 689 fine hours. Raising the alert level catches more drops but gives more false alarms.</div>
+<div style="overflow-x:auto">
+<table class="tbl" style="min-width:460px">
+<thead><tr><th>Alert when forecast is below</th><th>Drops caught</th><th style="text-align:right">False alarms</th></tr></thead>
+<tbody>
+<tr><td class="num">4.0 mg/L</td><td><div style="display:flex;align-items:center;gap:10px"><div style="width:120px;height:10px;border-radius:5px;background:#e4ebea;overflow:hidden" role="img" aria-label="0 of 6"><div style="width:0%;height:100%;background:#2a78d6"></div></div><span class="num">0 of 6</span></div></td><td class="num" style="text-align:right">0 of 683</td></tr>
+<tr><td class="num">4.5 mg/L</td><td><div style="display:flex;align-items:center;gap:10px"><div style="width:120px;height:10px;border-radius:5px;background:#e4ebea;overflow:hidden" role="img" aria-label="1 of 6"><div style="width:17%;height:100%;background:#2a78d6"></div></div><span class="num">1 of 6</span></div></td><td class="num" style="text-align:right">9 of 683</td></tr>
+<tr><td class="num">5.0 mg/L</td><td><div style="display:flex;align-items:center;gap:10px"><div style="width:120px;height:10px;border-radius:5px;background:#e4ebea;overflow:hidden" role="img" aria-label="5 of 6"><div style="width:83%;height:100%;background:#2a78d6"></div></div><span class="num">5 of 6</span></div></td><td class="num" style="text-align:right">106 of 683</td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top:12px;padding:12px;border-radius:10px;background:#fbe4e0;color:#9a2517;font-size:13px;line-height:1.5;font-weight:600">The forecaster does not yet give reliable warning of sudden drops, and six events is too few to be conclusive. This is the main thing to improve with real data.</div>
+</section>
+
+<section class="card" style="flex:1 1 380px">
+<h2 class="h2">Status classifier: actual vs predicted</h2>
+<div class="muted" style="margin-bottom:12px">Test period, 720 hours. Shading shows the share of each actual class.</div>
+<div class="cm" role="table" aria-label="Confusion matrix">
+<div></div><div style="font-weight:700;color:#4b6469;font-size:12px">Predicted Good</div><div style="font-weight:700;color:#4b6469;font-size:12px">Predicted Warning</div><div style="font-weight:700;color:#4b6469;font-size:12px">Predicted Critical</div>
+<div style="font-weight:700;color:#4b6469;font-size:12px;text-align:right">Actual Good</div>
+<div class="num" style="background:#2a78d6;color:#ffffff">543<br>91%</div><div class="num" style="background:#e8f0fb">52<br>9%</div><div class="num" style="background:#fcfdfd">0<br>0%</div>
+<div style="font-weight:700;color:#4b6469;font-size:12px;text-align:right">Actual Warning</div>
+<div class="num" style="background:#dce8f8">19<br>17%</div><div class="num" style="background:#5b96e0;color:#ffffff">86<br>78%</div><div class="num" style="background:#f2f6fc">5<br>5%</div>
+<div style="font-weight:700;color:#4b6469;font-size:12px;text-align:right">Actual Critical</div>
+<div class="num" style="background:#fcfdfd">0<br>0%</div><div class="num" style="background:#eef3fb">1<br>7%</div><div class="num" style="background:#2a78d6;color:#ffffff">14<br>93%</div>
+</div>
+</section>
+</div>
+
+<section class="card">
+<h2 class="h2">Next improvements</h2>
+<div class="grid3" style="margin-top:10px">
+<div><div style="font-weight:700;font-size:14px">1. Collect real data</div><div class="muted">Several weeks of hourly readings and fish samples from Hayuma Cooperative, then retrain.</div></div>
+<div><div style="font-weight:700;font-size:14px">2. Better oxygen warning</div><div class="muted">Add longer history, weather and feeding times, and forecast 3 to 6 hours ahead.</div></div>
+<div><div style="font-weight:700;font-size:14px">3. Compare more models</div><div class="muted">Random forest, XGBoost and LSTM against the same baselines.</div></div>
+<div><div style="font-weight:700;font-size:14px">4. Detect sensor faults</div><div class="muted">Stop stuck or impossible readings from triggering alerts or feeding changes.</div></div>
+<div><div style="font-weight:700;font-size:14px">5. Explain each alert</div><div class="muted">Show which readings pushed the model toward a warning.</div></div>
+<div><div style="font-weight:700;font-size:14px">6. Validate the rules</div><div class="muted">Have the cooperative and an aquaculture adviser confirm limits and feeding rates.</div></div>
+</div>
+</section>
+
+<footer class="muted">Scores come from the prototype run on synthetic data. Water-quality references: SEAFDEC/AQD milkfish culture guidance.</footer>
+</main>
+</div>
+<div class="page" id="p-devices" hidden>
+<main class="wrap">
+<div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+<div>
+<h1 class="h1">Devices and data</h1>
+<div class="muted" style="margin-top:4px">Sensor health, fish sampling, and data for retraining the models</div>
+</div>
+<span class="badge">Sample data · prototype</span>
+</div>
+
+<div class="row" style="align-items:flex-start">
+<section class="card" style="flex:1.4 1 520px">
+<h2 class="h2">IoT node and sensors</h2>
+<div class="muted" style="margin-bottom:10px">ESP32 controller at Cage A · last upload 11:00 PM</div>
+<div style="overflow-x:auto">
+<table class="tbl" style="min-width:480px">
+<thead><tr><th>Sensor</th><th>Latest</th><th>Status</th><th>Calibration</th></tr></thead>
+<tbody>
+<tr><td style="font-weight:700">Water temperature</td><td class="num">27.9 °C</td><td><span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Online</span></td><td class="muted">Checked against reference</td></tr>
+<tr><td style="font-weight:700">pH</td><td class="num">8.05</td><td><span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Online</span></td><td><span class="pill warn"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z M8 6.5v3.2 M8 11.6v.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>Due now</span></td></tr>
+<tr><td style="font-weight:700">Dissolved oxygen</td><td class="num">4.69 mg/L</td><td><span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Online</span></td><td class="muted">Checked against reference</td></tr>
+</tbody>
+</table>
+</div>
+<div class="muted" style="margin-top:12px">Sensor accuracy depends on calibration, so readings are compared with a reference instrument or test kit. Calibrate the pH probe with pH 4, 7 and 10 buffers.</div>
+</section>
+
+<section class="card" style="flex:1 1 340px">
+<h2 class="h2">Data for retraining</h2>
+<div class="muted" style="margin-bottom:12px">Real data replaces the synthetic data the models were trained on.</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf2f1;padding-bottom:10px"><span class="muted">Days of sensor data</span><span class="num" style="font-size:20px">18</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #edf2f1;padding-bottom:10px"><span class="muted">Fish samples recorded</span><span class="num" style="font-size:20px">10</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:4px"><span class="muted">Batches</span><span class="num" style="font-size:20px">1</span></div>
+</div>
+<div style="margin-top:12px;padding:12px;border-radius:10px;background:#e4eefb;color:#1d4f91;font-size:13px;line-height:1.5;font-weight:600">The models need several weeks of readings and more than one batch before real accuracy can be reported.</div>
+<div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:10px">
+<button type="button" class="btn2">Export sensor CSV</button>
+<button type="button" class="btn2">Export growth CSV</button>
+</div>
+</section>
+</div>
+
+<section class="card">
+<h2 class="h2">Log fish sample</h2>
+<div class="muted" style="margin-bottom:14px">Weigh a sample of fish from the cage and enter the totals. The average weight is checked against the model's prediction.</div>
+<div class="row" style="align-items:flex-end">
+<div class="fld"><label for="batch">Batch</label><select id="batch"><option>Batch 3 · Cage A</option></select></div>
+<div class="fld"><label for="date">Sample date</label><input id="date" type="text" value="Today"></div>
+<div class="fld"><label for="count">Fish weighed</label><input id="count" type="number" min="1" value="30"></div>
+<div class="fld"><label for="total">Total weight (g)</label><input id="total" type="number" min="1" value="3390"></div>
+<div class="fld" style="flex:0 0 auto"><button type="button" class="btn" id="save">Save sample</button></div>
+</div>
+<div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end">
+<div><div class="lab">Average weight</div><div style="margin-top:4px"><span class="num" style="font-size:30px"><span id="avg">113</span></span><span class="muted" style="margin-left:6px;font-weight:600">g</span></div></div>
+<div><div class="lab">Model predicted</div><div style="margin-top:4px"><span class="num" style="font-size:30px">106</span><span class="muted" style="margin-left:6px;font-weight:600">g</span></div></div>
+<div><div class="lab">Difference</div><div style="margin-top:4px"><span class="num" style="font-size:30px"><span id="diff">+7 g (+7%)</span></span></div></div>
+<span id="saved" style="display:none"><span class="pill good"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Sample saved (mockup only)</span></span>
+</div>
+</section>
+
+<footer class="muted">Sample data. In the working system, saved samples are added to the growth CSV and used the next time the models are retrained.</footer>
+</main>
+</div>
+<script>
+(function(){
+var CURVES={"27": "50,232 62,231 74,231 86,230 98,229 110,227 122,226 134,225 146,224 158,223 170,221 182,219 194,217 206,215 218,213 230,211 242,209 254,206 266,204 278,200 290,198 302,194 314,191 326,188 338,183 350,180 362,174 374,170 386,165 398,160 410,157 422,151 434,148 446,143 458,140 470,135 482,128 494,123 506,115 518,110 530,104 542,100 554,95 566,89 578,85 590,76 602,70 614,61 626,56 638,51 650,50", "29": "50,232 62,232 74,231 86,230 98,229 110,227 122,226 134,225 146,224 158,223 170,221 182,219 194,216 206,215 218,212 230,210 242,209 254,205 266,203 278,199 290,197 302,193 314,190 326,187 338,182 350,178 362,172 374,168 386,163 398,157 410,153 422,146 434,142 446,136 458,132 470,125 482,117 494,110 506,102 518,99 530,93 542,89 554,84 566,79 578,75 590,68 602,64 614,58 626,54 638,50 650,48", "31": "50,231 62,230 74,229 86,228 98,227 110,226 122,225 134,223 146,222 158,221 170,219 182,217 194,214 206,212 218,210 230,207 242,205 254,201 266,198 278,194 290,191 302,187 314,182 326,178 338,171 350,167 362,160 374,155 386,148 398,142 410,137 422,129 434,125 446,118 458,114 470,108 482,100 494,93 506,85 518,81 530,75 542,73 554,69 566,61 578,54 590,46 602,43 614,35 626,29 638,22 650,20"}, PILLS={"crit": "<span class=\"pill crit\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M5 1.5h6L14.5 5v6L11 14.5H5L1.5 11V5z M8 5v3.8 M8 11v.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>Critical</span>", "warn": "<span class=\"pill warn\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 2l6.5 11.5h-13z M8 6.5v3.2 M8 11.6v.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>Warning</span>", "info": "<span class=\"pill info\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"8\" r=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"></circle><path d=\"M8 7.2v4 M8 4.8v.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"></path></svg>Info</span>"};
+var PAGES=["main","growth","alerts","model","devices"];
+var TITLES={main:"Dashboard",growth:"Growth & Feeding",alerts:"Alerts",model:"ML Model",devices:"Devices & Data"};
+function show(){
+  var h=(location.hash||"#main").slice(1); if(PAGES.indexOf(h)<0)h="main";
+  PAGES.forEach(function(p){document.getElementById("p-"+p).hidden=(p!==h);});
+  document.querySelectorAll("[data-nav]").forEach(function(a){a.classList.toggle("on",a.getAttribute("data-nav")===h);});
+  document.title="BangusSmart - "+TITLES[h]; window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",show); show();
+var ON="background:#0f6b6e;color:#ffffff", OFF="background:#ffffff;color:#0d2a2f";
+// growth
+var DAY={27:144,29:137,31:130};
+var NOTE={27:"At 27 °C the model reaches 400 g about a week later than at 29 °C.",29:"Baseline estimate, about 74 days from today.",31:"At 31 °C the model reaches 400 g about a week earlier than at 29 °C."};
+function setTemp(t){
+  document.getElementById("curve").setAttribute("points",CURVES[t]);
+  document.getElementById("mday").textContent=DAY[t];
+  document.getElementById("mnote").textContent=NOTE[t];
+  document.querySelectorAll("[data-temp]").forEach(function(b){b.setAttribute("style",b.getAttribute("data-temp")==t?ON:OFF);});
+}
+document.querySelectorAll("[data-temp]").forEach(function(b){b.addEventListener("click",function(){setTemp(+b.getAttribute("data-temp"));});});
+setTemp(29);
+// alerts
+var ALL=[
+{sev:"warn",title:"Dissolved oxygen dropped 1.31 mg/L in one hour",when:"Today, 11:00 PM · now 4.69 mg/L",action:"Check the aerator and hold the next feeding if oxygen keeps falling."},
+{sev:"info",title:"Oxygen approached the alert level",when:"Today, 4:00 AM · measured 4.16 mg/L, forecast 4.25 mg/L",action:"No action needed. Oxygen recovered by 5:00 AM."},
+{sev:"info",title:"Fish sampling due in 2 days",when:"Today, 8:00 AM",action:"Weigh a sample so the growth model can be checked against real fish."},
+{sev:"warn",title:"Temperature above the good range",when:"Yesterday, 2:00 PM · 32.8 °C",action:"Reduce the ration and watch oxygen through the afternoon."},
+{sev:"crit",title:"Water status Critical: low oxygen and high temperature",when:"2 days ago, 2:00 PM · oxygen 2.8 mg/L, 33.1 °C",action:"Stop feeding, run aeration, and inform the farm supervisor."},
+{sev:"info",title:"pH sensor calibration due",when:"3 days ago",action:"Calibrate with pH 4, 7 and 10 buffer solutions."}];
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function setFilter(f){
+  var list=f==="all"?ALL:ALL.filter(function(x){return x.sev===f;});
+  document.getElementById("alist").innerHTML=list.map(function(x){
+    return '<div style="display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-start;padding:16px 0;border-top:1px solid #edf2f1"><div style="flex:none;width:104px">'+PILLS[x.sev]+'</div><div style="flex:1 1 320px;min-width:0"><div style="font-weight:700;font-size:15px">'+esc(x.title)+'</div><div class="muted" style="margin-top:2px">'+esc(x.when)+'</div><div style="margin-top:8px;font-size:14px;line-height:1.5"><span style="font-weight:700">Suggested action:</span> '+esc(x.action)+'</div></div></div>';
+  }).join("");
+  document.getElementById("shown").textContent=list.length+(list.length===1?" alert shown":" alerts shown");
+  document.querySelectorAll("[data-f]").forEach(function(b){b.setAttribute("style",b.getAttribute("data-f")===f?ON:OFF);});
+}
+document.querySelectorAll("[data-f]").forEach(function(b){b.addEventListener("click",function(){setFilter(b.getAttribute("data-f"));});});
+setFilter("all");
+// devices
+var cnt=document.getElementById("count"), tot=document.getElementById("total"), saved=document.getElementById("saved");
+function calc(){
+  var c=parseFloat(cnt.value), t=parseFloat(tot.value), ok=c>0&&t>0;
+  var a=ok?t/c:null, d=ok?a-106:null;
+  document.getElementById("avg").textContent=ok?Math.round(a):"–";
+  document.getElementById("diff").textContent=ok?((d>=0?"+":"−")+Math.abs(Math.round(d))+" g ("+(d>=0?"+":"−")+Math.abs(Math.round(d/106*100))+"%)"):"–";
+  saved.style.display="none";
+}
+cnt.addEventListener("input",calc); tot.addEventListener("input",calc); calc();
+document.getElementById("save").addEventListener("click",function(){saved.style.display="inline-flex";});
+})();
+
+</script></body></html>

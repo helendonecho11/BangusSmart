@@ -1,0 +1,19 @@
+{
+  "synthetic": true,
+  "pixels_per_cm": 24.0,
+  "square_size_cm": 1.0,
+  "fish": [
+    {
+      "length_cm": 18.0,
+      "snout_px": [
+        120.0,
+        340.0
+      ],
+      "fork_px": [
+        537.2799569568775,
+        451.809827484289
+      ]
+    }
+  ],
+  "note": "Drawn geometry only; not real bangus accuracy."
+}

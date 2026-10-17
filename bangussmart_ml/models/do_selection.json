@@ -1,0 +1,92 @@
+[
+  {
+    "seed": 42,
+    "horizon": 1,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 42,
+    "horizon": 3,
+    "model": "Random Forest",
+    "margin": 0.75
+  },
+  {
+    "seed": 42,
+    "horizon": 6,
+    "model": "Ridge",
+    "margin": 0.5
+  },
+  {
+    "seed": 43,
+    "horizon": 1,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 43,
+    "horizon": 3,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 43,
+    "horizon": 6,
+    "model": "Gradient Boosting",
+    "margin": 0.75
+  },
+  {
+    "seed": 44,
+    "horizon": 1,
+    "model": "Random Forest",
+    "margin": 0.25
+  },
+  {
+    "seed": 44,
+    "horizon": 3,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 44,
+    "horizon": 6,
+    "model": "Gradient Boosting",
+    "margin": 0.5
+  },
+  {
+    "seed": 45,
+    "horizon": 1,
+    "model": "Gradient Boosting",
+    "margin": 0.5
+  },
+  {
+    "seed": 45,
+    "horizon": 3,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 45,
+    "horizon": 6,
+    "model": "Gradient Boosting",
+    "margin": 0.75
+  },
+  {
+    "seed": 46,
+    "horizon": 1,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 46,
+    "horizon": 3,
+    "model": "Random Forest",
+    "margin": 0.5
+  },
+  {
+    "seed": 46,
+    "horizon": 6,
+    "model": "Gradient Boosting",
+    "margin": 0.75
+  }
+]

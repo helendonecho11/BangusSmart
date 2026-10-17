@@ -1,0 +1,38 @@
+{
+  "status": {
+    "model_accuracy": 0.8931,
+    "rule_on_noisy_accuracy": 0.9194,
+    "test_rows": 720,
+    "class_counts_test": {
+      "Good": 595,
+      "Warning": 110,
+      "Critical": 15
+    }
+  },
+  "do_forecast": {
+    "mae_model": 0.2893,
+    "mae_baseline": 0.3616,
+    "r2": 0.8839,
+    "new_crossing_alerts": {
+      "margin_0.0": {
+        "caught": 0,
+        "crossings": 6,
+        "false_alarms": 0
+      },
+      "margin_0.5": {
+        "caught": 1,
+        "crossings": 6,
+        "false_alarms": 8
+      },
+      "margin_1.0": {
+        "caught": 5,
+        "crossings": 6,
+        "false_alarms": 102
+      }
+    }
+  },
+  "growth": {
+    "mae_g": 28.07,
+    "r2": 0.9219
+  }
+}
